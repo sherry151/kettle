@@ -1,0 +1,57 @@
+extends layout
+
+block content
+
+  // Wrapper
+  #wrapper.wrapper
+    div.row
+      h1= title
+    div.row
+      div(class="col-6 col-rg-6")
+        h2 Desired Temperature
+        input(class="knob temp" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" data-rotation="clockwise" value="35")
+        br
+        br
+      div(class="col-6 col-rg-6")
+        h2 Cooking Duration
+        input(class="knob time" data-min=0 data-max=120 data-fgColor="#6688AA" data-rotation="clockwise" value="10")
+        br
+        br 
+    div.row
+      div(class="col-4 col-rg-left-4 col-rg-2")
+        button(id="btnStartCooking" class="button button-green") Start
+      div(class="col-left-4 col-4 col-rg-left-4 col-rg-2")
+        button(id="btnStopCooking" class="button button-red") Stop
+    div.row
+      // RECIPE LIST
+      br
+      div.row
+        h2.col-left-4.col-4 Exciting Recipes!
+        br
+      div.row
+        #recipeList.col-left-4.col-4
+          table.table.table-hover.table-blank
+              thead
+                  th Recipe
+                  th Teperature
+                  th Time
+                  th Delete?
+              tbody
+      // /RECIPE LIST
+
+    div.row
+      // ADD Recipe
+      div.row
+        h2.col-left-4.col-4 Add a Recipe You Like!
+        br
+      div.row
+        #addRecipe(class = "col-left-4 col-4")
+          form.form
+            input.form-group#inputRecipeName(type='text', placeholder='Recipename')
+            input.form-group#inputRecipeTemp(type='text', placeholder='Temperature')
+            input.form-group#inputRecipeTime(type='text', placeholder='Time')
+            br
+            button(id="btnAddRecipe" class="button button-blue") Add Recipe
+      // /ADD RECIPE
+
+  // /WRAPPER
